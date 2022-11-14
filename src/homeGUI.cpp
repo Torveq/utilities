@@ -287,6 +287,7 @@ void timeMenu(int* pane_keycache) {
   menuitems[0].text = (char*)"Calendar";
   menuitems[1].text = (char*)"Tasks";
   menuitems[2].text = (char*)"Chronometer";
+  /*menuitems[3].text = (char*)"Time Left";  */
   
   Menu menu;
   menu.items=menuitems;
