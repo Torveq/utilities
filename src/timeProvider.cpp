@@ -17,6 +17,17 @@
 #include "settingsProvider.hpp"
 #include "stringsProvider.hpp"
 
+char PMaths="pure mathematics";
+char Mech="mechanics";
+char Phys="physics";    
+char Chem="chemistry";
+char Ar="arabic";
+char Eng="english language";
+char RE="islamic";
+char Moral="moral Education";
+char PE="physical Education";  
+char BT="break time";
+
 static const char *dayofweek[] = {"Sunday",
                                   "Monday",
                                   "Tuesday",
@@ -46,6 +57,12 @@ static const char *monthNames[] = {"January",
                                    "November",
                                    "December"
                                   }; 
+static const char *Monday[] = {Phys, Mech, Eng, Ar,BT, Phys, PMaths, RE, Chem, "Out"};
+static const char *Tuesday[] = {Mech, Eng, Chem, Chem,BT, PMaths, PMaths, Phys, Phys, "Out"};
+static const char *Wednesday[] = {Ar, Mech, Phys, RE,BT, PMaths, Moral, Chem, Chem, "Out"};
+static const char *Thursday[] = {Chem, Ar, Eng, PMaths,BT, Ar, Phys, PE, Chem, "Out"};
+static const char *Friday[] = {PMaths, Phys,BT, PMaths, Mech, "Out"};
+
 static const char monthDays[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 // RTC, CLOCK and CALENDAR CODE
@@ -420,6 +437,7 @@ void stringToTime(char* string, int* h, int* m, int *s) {
   char hour[3];
   char minute[3];
   char second[3];
+  char CTime=hour+":"+minute;
   hour[0] = string[0]; hour[1] = string[1]; hour[2] = '\0';
   minute[0] = string[2]; minute[1] = string[3]; minute[2] = '\0';
   second[0] = string[4]; second[1] = string[5]; second[2] = '\0';
@@ -447,3 +465,32 @@ int isDSTchangeToday() {
          || (d == 31 - (4+5*y/4) % 7 && m == 3)   // EU start
          || (d == 31 - (1+5*y/4) % 7 && m == 10)); // EU end
 }
+
+if (getCurrentDOWAsString=="Saturday" || getCurrentDOWAsString=="Sunday") {
+  break;
+}
+else if (getCurrentDOWAsString=="Friday") {
+  static const char *TimeSchedule[5] = {"08:30","09:20","09:50","10:40","11:30"};
+}
+else {
+  static const char *TimeSchedule[9] = {"08:30","09:20","10:10","11:00","11:30","12:20","13:10","14:00","14:45"};
+}
+
+int Cn=0;
+for (std::list<TimeSchedule>::iterator it = data.begin(); it != data.end(); ++it){
+    std::cout << it->name;
+    int Cn=Cn+1;
+    if (CTime < it) {
+      char Finishes=it;
+      int Period=Cn;
+      break;    
+}
+int FinH = Finishes.substr(0,2);
+int FinM = Finishes.substr(3,2);
+if(FinM.minutes > minutes.minutes) {
+  --hours.hours;
+  minutes.inutes += 60;
+}
+  difference->minutes = minutes.minutes-FinM.minutes;
+  difference->hours = hours.hours-FinH.hours;
+  char TL = char(difference->hours)+":"+char(difference->minutes)
