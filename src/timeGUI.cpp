@@ -430,6 +430,7 @@ void drawHomeClock(int format, int theme) {
     case 10:
       // show analog clock with short date
       drawAnalogClock(LCD_WIDTH_PX/2, 58+24, 50, bgcolor, fgcolor);
+      char timeStr = timeStr+TL+Lesson
       printCentered(timeStr, 120+24, fgcolor, bgcolor);
       break;
     // 11 is for showing nothing at all... so put nothing in VRAM.
