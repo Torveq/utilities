@@ -62,6 +62,7 @@ static const char *Tuesday[] = {Mech, Eng, Chem, Chem,BT, PMaths, PMaths, Phys, 
 static const char *Wednesday[] = {Ar, Mech, Phys, RE,BT, PMaths, Moral, Chem, Chem, "Out"};
 static const char *Thursday[] = {Chem, Ar, Eng, PMaths,BT, Ar, Phys, PE, Chem, "Out"};
 static const char *Friday[] = {PMaths, Phys,BT, PMaths, Mech, "Out"};
+static const char *DAYSOW[] = {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday}
 
 static const char monthDays[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
@@ -494,3 +495,4 @@ if(FinM.minutes > minutes.minutes) {
   difference->minutes = minutes.minutes-FinM.minutes;
   difference->hours = hours.hours-FinH.hours;
   char TL = char(difference->hours)+":"+char(difference->minutes)
+  char Lesson= Tuesday[Period]
