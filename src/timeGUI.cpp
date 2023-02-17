@@ -53,31 +53,32 @@ void drawLongDate(int textY, int format, int colorfg, int colorbg, int miniminii
   char buffer[50];
   switch(format) {
     case 0:
-      sprintf(buffer, "%s, %s %d", getCurrentDOWAsString(), getCurrentMonthAsString(), curDay);
+      sprintf(buffer, "%s, %s %d", getCurrentDOWAsString(), getCurrentMonthAsString(), curDay, 
+"testing");
       break;
     case 1:
     case 3:
       sprintf(buffer, "%s, %d%s %s", getCurrentDOWAsString(), curDay,
-              getDayEnding(curDay), getCurrentMonthAsString());
+              getDayEnding(curDay), getCurrentMonthAsString(), "testing");
       break;
     case 2:
       sprintf(buffer, "%s, %d%s %s %d", getCurrentDOWAsString(), curDay, getDayEnding(curDay),
-              getCurrentMonthAsString(), curYear);
+              getCurrentMonthAsString(), curYear, "testing");
       break;
     case 4:
     case 6: //it's exactly the same except minimini is not used, but that's not handled here
-      sprintf(buffer, "%s %d", getCurrentMonthAsString(), curDay);
+      sprintf(buffer, "%s %d", getCurrentMonthAsString(), curDay, "testing");
       break;
     case 5:
-      sprintf(buffer, "%s %d, %d", getCurrentMonthAsString(), curDay, curYear);
+      sprintf(buffer, "%s %d, %d", getCurrentMonthAsString(), curDay, curYear, "testing");
       break;
     case 7:
     case 9: //exactly the same except minimini, not handled here
-      sprintf(buffer, "%d%s %s", curDay, getDayEnding(curDay), getCurrentMonthAsString());
+      sprintf(buffer, "%d%s %s", curDay, getDayEnding(curDay), getCurrentMonthAsString(), "testing");
       break;
     case 8:
       sprintf(buffer, "%d%s %s %d", curDay, getDayEnding(curDay), getCurrentMonthAsString(),
-              curYear);
+              curYear, "testing");
       break;
   }
 
